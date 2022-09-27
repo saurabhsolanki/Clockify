@@ -1,4 +1,4 @@
-import { Box, Flex, Img, Text } from "@chakra-ui/react";
+import { Box, Flex, Img, } from "@chakra-ui/react";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
