@@ -1,6 +1,6 @@
 .nav{
     border: 1px solid black;
-    padding:18px;
+    padding:8px 18px 8px 18px;
     display: flex;
     justify-content: space-between;
 }
@@ -24,7 +24,7 @@
 .vertical_dotted_line
 {
     border-left: 1px dotted black;
-    height: 20px;
+    height: 30px;
 } 
 .user{
  border-radius: 50%;
