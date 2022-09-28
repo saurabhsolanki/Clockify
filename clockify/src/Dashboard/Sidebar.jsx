@@ -7,11 +7,11 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    useDisclosure,
     Button,
     Input,
   } from '@chakra-ui/react'
 import { useState } from 'react'
+import DashboardNav from './DashboardNav'
 const Sidebar = () => {
     // const { isOpen, onOpen, onClose } = useDisclosure()
     const [isOpen,setOpen]=useState(true)
@@ -25,10 +25,11 @@ const Sidebar = () => {
     const btnRef = React.useRef()
   return (
     <div>
+      <DashboardNav onOpen={onOpen}/>
        <>
-      <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+      {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
         Open
-      </Button>
+      </Button> */}
       <Drawer
         isOpen={isOpen}
         placement='left'
@@ -52,6 +53,7 @@ const Sidebar = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      
     </>
     </div>
   )

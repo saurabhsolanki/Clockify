@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Sidebar from '../Dashboard/Sidebar'
 import DownLoad from '../Pages/DownLoad'
 import Features from '../Pages/Features'
 import Login from '../Pages/Login'
@@ -13,6 +14,7 @@ const AllRoutes = () => {
     <Route path='/download' element={<DownLoad />} />
     <Route path='/login' element={<Login />} />
     <Route path='/signup' element={<Signup />} />
+    <Route path={"/tracker"} element={<Sidebar/>}/>
 
    </Routes>
    </>
