@@ -14,8 +14,9 @@ const AllRoutes = () => {
     <Route path='/download' element={<DownLoad />} />
     <Route path='/login' element={<Login />} />
     <Route path='/signup' element={<Signup />} />
-    <Route path={"/tracker"} element={<Sidebar/>}/>
 
+    <Route path={"/tracker"} element={<Sidebar/>}/>
+     
    </Routes>
    </>
   )
