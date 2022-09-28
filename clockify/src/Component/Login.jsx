@@ -1,3 +1,4 @@
+<<<<<<< HEAD:clockify/src/Pages/Login.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -17,6 +18,23 @@ import { AiOutlineGoogle } from "react-icons/ai";
 const Login = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+=======
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from './Navbar/Navbar'
+
+const Login = () => {
+  return (
+    <>
+    <Navbar/>
+    <Link to="/login">
+    <div>Login</div>
+    </Link>
+    
+    </>
+  )
+}
+>>>>>>> 969ebaebabb8c752d0564a72707605b67a47175a:clockify/src/Component/Login.jsx
 
   return (
     <>
