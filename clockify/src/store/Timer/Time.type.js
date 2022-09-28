@@ -1,0 +1,1 @@
+export const TIME_SUCCESS="TIME_SUCCESS"
