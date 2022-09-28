@@ -1,0 +1,118 @@
+.main-container {
+    display: flex;
+   
+  }
+  main {
+    padding: 10px;
+    
+  }
+  
+  .title {
+    font-size: 3rem;
+    display: grid;
+    place-items: center;
+  }
+  .icon{
+      color: #000000e6;;
+      font-size: 21px;
+      margin-bottom: 15px;
+      display: flex;
+      align-self: center;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    
+    color: white;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .top_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+  }
+  .logo {
+    font-size: 18px;
+    line-height: 0;
+  }
+  .bars {
+    width: 30px;
+  }
+  .hide {
+    display: none;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    height: 30px;
+    padding: 10px;
+  }
+  .search input {
+    border: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    background: rgb(238, 238, 238);
+  
+    color: white;
+  }
+  
+  .routes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: calc(100vh - 50px);
+    border: 1px solid black;
+   
+  }
+  .link {
+      border: 1px solid black;
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-right: 4px solid transparent;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+  .link:hover {
+    border-right: 4px solid white;
+    background: #E4EAEE;;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+  .active {
+    border-right: 4px solid white;
+    background: #E4EAEE;
+  }
+  .link_text {
+    white-space: nowrap;
+    font-size: 15px;
+    color: #000000e6;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu {
+    display: flex;
+    color: white;
+    padding: 5px 10px;
+    border-right: 4px solid transparent;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    justify-content: space-between;
+  }
+  .menu_item {
+    display: flex;
+    gap: 10px;
+  }
+  .menu_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu_container .link {
+    padding-left: 20px;
+    border-bottom: #fff 0.5px solid;
+  }
