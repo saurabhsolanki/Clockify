@@ -1,11 +1,15 @@
-const express=require("express")
+const express = require("express");
 
-const app=express()
+const teamRouter = require("./Team/team.router");
 
-app.get("/",(req,res)=>{
-    res.send("<h1>hello</h1>")
-})
+const app = express();
+app.use(express.json());
+app.use("/teams", teamRouter);
 
-app.listen(8000,()=>{
-    console.log("started server 8080")
-})
+app.get("/", (req, res) => {
+  res.send("<h1>hello</h1>");
+});
+
+app.listen(8000, () => {
+  console.log("started server 8080");
+});
