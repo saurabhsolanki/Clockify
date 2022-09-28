@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { Box } from '@chakra-ui/react';
+=======
 import { Route, Routes } from 'react-router-dom';
+>>>>>>> 969ebaebabb8c752d0564a72707605b67a47175a
 import './App.css';
 
 import Navbar from './Component/Navbar/Navbar';
@@ -10,6 +14,13 @@ import Footer from './Component/Footer/Footer'
 import Sidebar from './Dashboard/Sidebar';
 function App() {
   return (
+<<<<<<< HEAD
+    <div className="App" >
+    
+      <Navbar />
+        <AllRoutes />
+    
+=======
     <div className="App">
      
       
@@ -22,6 +33,7 @@ function App() {
         
       </Routes>
       <Footer />
+>>>>>>> 969ebaebabb8c752d0564a72707605b67a47175a
     </div>
   );
 }
