@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    color: black;
+}
+.logo{
+    font-size: 30px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    width: 75%;
+
+}
+
+.home,
+.skills,
+.contact,
+.about,
+.signup{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+
+
+}
+
+.signup{
+    border: 1px solid lightseagreen;
+    color: lightskyblue;
+}
+
+.mobile-menu-icon{
+    display: none
+}
+@media screen and (max-width: 780px) {
+    .log{
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 35px;
+
+    }
+    .nav-links{
+       display: none; 
+    }
+    .nav-links-mobile{
+        position: absolute;
+        display: block;
+        list-style: none;
+        left: 0;
+        top: 75px;
+        width: 100%;
+        transition: all 0.5s ease-out;
+
+    }
+
+    .home,
+    .skills,
+    .about,
+    .contact,
+    .signup{
+        color: black;
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+    .signup{
+        border: none;
+        color: lightblue;
+    }
+    .mobile-menu-icon{
+        display: block;
+        position: absolute;
+        font-size: 30px;
+        color: black;
+        border: none;
+        outline: none;
+        top: 15px;
+        right: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .log{
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 35px;
+
+    }
+    .nav-links{
+       display: none; 
+    }
+    .nav-links-mobile{
+        position: absolute;
+        display: block;
+        list-style: none;
+        left: 0;
+        top: 75px;
+        width: 100%;
+        transition: all 0.5s ease-out;
+
+    }
+
+    .home,
+    .skills,
+    .about,
+    .contact,
+    .signup{
+        color: black;
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+    .signup{
+        border: none;
+    }
+    .mobile-menu-icon{
+        display: block;
+        position: absolute;
+        font-size: 30px;
+        color: black;
+        border: none;
+        outline: none;
+        top: 15px;
+        right: 25px;
+    }
+}
