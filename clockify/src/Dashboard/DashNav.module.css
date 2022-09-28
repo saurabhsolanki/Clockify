@@ -23,7 +23,7 @@
 }
 .vertical_dotted_line
 {
-    /* border-left: 1px dotted black; */
+    border-left: 1px dotted black;
     height: 20px;
 } 
 .user{
