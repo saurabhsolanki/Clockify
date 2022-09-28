@@ -13,6 +13,7 @@
 }
 .logo{
     font-size: 30px;
+
 }
 
 .nav-links{
@@ -65,6 +66,9 @@
         top: 75px;
         width: 100%;
         transition: all 0.5s ease-out;
+        
+            background-color: aqua;
+        
 
     }
 
@@ -81,7 +85,7 @@
     }
     .signup{
         border: none;
-        color: lightblue;
+        color: black;
     }
     .mobile-menu-icon{
         display: block;
@@ -92,6 +96,11 @@
         outline: none;
         top: 15px;
         right: 25px;
+        
+
+    }
+    .navbar{
+        background-color: aqua;
     }
 }
 
@@ -140,5 +149,8 @@
         outline: none;
         top: 15px;
         right: 25px;
+    }
+    .navbar{
+        background-color: aqua;
     }
 }

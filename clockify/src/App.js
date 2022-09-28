@@ -6,6 +6,7 @@ import Features from './Component/Features';
 import DownLoad from './Component/DownLoad';
 import Login from './Component/Login';
 import Signup from './Component/Signup';
+import Footer from './Component/Footer/Footer'
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
 
       </Routes>
+      <Footer />
     </div>
   );
 }
