@@ -1,12 +1,11 @@
-
 import './App.css';
-import Sidebar from './Dashboard/Sidebar';
-
+import Navbar from './Component/Navbar'
+import AllRoutes from './Routes/AllRoutes';
 function App() {
   return (
     <div className="App">
-      <h1>This is Testing</h1>
-      <Sidebar/>
+      <Navbar />
+      <AllRoutes/>
     </div>
   );
 }
