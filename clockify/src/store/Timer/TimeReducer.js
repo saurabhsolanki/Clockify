@@ -1,7 +1,7 @@
 import { TIME_SUCCESS_GET, TIME_SUCCESS_POST } from "./Time.type"
 
 const initData={
-    data:[]
+    TimeData:[]
 }
 
 export const TimeTrackerReducer=(state=initData,{type,payload})=>{
@@ -9,14 +9,14 @@ export const TimeTrackerReducer=(state=initData,{type,payload})=>{
         case TIME_SUCCESS_POST:{
            return {
             ...state,
-            data:payload
+            TimeData:payload
            }
         }
 
         case TIME_SUCCESS_GET:{
             return{
                 ...state,
-                data:payload
+                TimeData:payload
             }
         }
         default :{
