@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useCountdownTimer } from "use-countdown-timer";
+import {useDispatch} from "react-redux"
 
 const TimeTracker = () => {
   const [data, setData] = useState([]);
+  let dispatch=useDispatch()
 
   const [text, setText] = useState("");
   const [select, setSelect] = useState();
