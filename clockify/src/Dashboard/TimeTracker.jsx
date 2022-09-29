@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useCountdownTimer } from "use-countdown-timer";
 import { useDispatch, useSelector } from "react-redux";
-import { getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
+import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
 
 const TimeTracker = () => {
   let {TimeData}=useSelector(store=> store.time)
@@ -40,30 +40,34 @@ const TimeTracker = () => {
     const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
-  
+  let showData = {
+    text: text,
+    select: select,
+    StartTime: startTime,
+    endTime: `${hours}-${minutes}`,
+    timer: formatTime(),
+  };
   const handlePause = () => {
-    let showData = {
-      text: text,
-      select: select,
-      StartTime: startTime,
-      endTime: `${hours}-${minutes}`,
-      timer: formatTime(),
-    };
+    
     // Pause button logic here
     clearInterval(countRef.current);
     setIsPaused(false);
     setIsActive(true);
     setEndTime(showData.endTime)
     dispatch(postTimeTracker(showData))
-    dispatch(getTimeTracker())
   };
 
-  // useEffect(()=>{
-  //   dispatch(getTimeTracker())
-  // },[])
+  
+  const deleteTime=(id)=>{
+    dispatch(deleteTimeTracker(id))
+    dispatch(getTimeTracker())
+  }
+  useEffect(()=>{
+    dispatch(getTimeTracker())
+  },[endTime])
 
   return (
-    <div id="main_container">
+    <div id="main_container" style={{"zIndex":"2000"}}>
       <div style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
         <div>
           <input
@@ -109,6 +113,7 @@ const TimeTracker = () => {
             <p>{e.StartTime}--</p>
             <p>{e.endTime}</p>
             <p>{e.timer}</p>
+            <button onClick={()=>deleteTime(e.id)}>Del</button>
           </div>
         ))}
       </div>

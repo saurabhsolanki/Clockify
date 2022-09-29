@@ -1,28 +1,11 @@
 {
   "timetracker": [
-   
     {
-      "text": "ge",
-      "select": "Redux",
-      "StartTime": "13-25",
-      "endTime": "13-25",
-      "timer": "00 : 00 : 02",
-      "id": 3
-    },
-    {
-      "text": "sf",
-      "select": "Redux",
-      "StartTime": "13-26",
-      "endTime": "13-26",
-      "timer": "00 : 00 : 04",
-      "id": 4
-    },
-    {
-      "text": "gd",
-      "StartTime": "13-27",
-      "endTime": "13-28",
-      "timer": "00 : 00 : 01",
-      "id": 5
+      "text": "",
+      "StartTime": "22-47",
+      "endTime": "22-47",
+      "timer": "00 : 00 : 03",
+      "id": 24
     }
   ]
 }
