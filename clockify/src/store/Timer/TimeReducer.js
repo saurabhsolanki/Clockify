@@ -1,26 +1,38 @@
-import { TIME_SUCCESS_GET, TIME_SUCCESS_POST } from "./Time.type"
+import {
+  TIME_SUCCESS_DELETE,
+  TIME_SUCCESS_GET,
+  TIME_SUCCESS_POST,
+} from "./Time.type";
 
-const initData={
-    TimeData:[]
-}
+const initData = {
+  TimeData: [],
+};
 
-export const TimeTrackerReducer=(state=initData,{type,payload})=>{
-    switch (type){
-        case TIME_SUCCESS_POST:{
-           return {
-            ...state,
-            TimeData:payload
-           }
-        }
-
-        case TIME_SUCCESS_GET:{
-            return{
-                ...state,
-                TimeData:payload
-            }
-        }
-        default :{
-        return state
+export const TimeTrackerReducer = (state = initData, { type, payload }) => {
+  switch (type) {
+    case TIME_SUCCESS_POST: {
+      return {
+        ...state,
+        TimeData: payload,
+      };
     }
+
+    case TIME_SUCCESS_GET: {
+      return {
+        ...state,
+        TimeData: payload,
+      };
     }
-}
+
+    case TIME_SUCCESS_DELETE: {
+      const newItems = state.data.filter((cI) => cI.id !== payload.id);
+      return {
+         ...state, 
+         TimeData: newItems 
+        };
+    }
+    default: {
+      return state;
+    }
+  }
+};
