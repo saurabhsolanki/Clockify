@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Sigup_google, Singup } from "../store/Auth/auth.action";
 // import { useDispatch } from "react-redux";
 // import { signupAPI } from "../../store/auth/auth.actions";
 
@@ -77,10 +79,30 @@ const SignUpStyling = styled.div`
   }
 `;
 const SignupPage = () => {
-  const [input1, setInput1] = useState("");
-  const [input2, setInput2] = useState("");
-  console.log(input1, input2);
-  // const dispatch = useDispatch();
+  const user = useSelector((store) => store.auth.user);
+  const navigate = useNavigate();
+  console.log(user);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const handlegoogle = (e) => {
+    e.preventDefault();
+    dispatch(Sigup_google());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(Singup(email, password));
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
+
   return (
     <SignUpStyling>
       <div className="navbarForLoginAndSignup">
@@ -139,20 +161,20 @@ const SignupPage = () => {
               Sign up
             </h3>
           </Link>
-          <form className="SignUpform">
+          <form className="SignUpform" onSubmit={handleSubmit}>
             <input
               type="text"
               className="SignUpinputAdjust"
               placeholder="Enter email"
               required
-              onChange={(e) => setInput1(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               className="SignUpinputAdjust"
               placeholder="Choose Password"
               required
-              onChange={(e) => setInput2(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div
               style={{
@@ -176,13 +198,11 @@ const SignupPage = () => {
                 </a>
               </p>
             </div>
-            <Link to={"/login"}>
-              <input
-                type="submit"
-                className="SignUpSubmitButton"
-                value="CREATE FREE ACCOUNT"
-              />
-            </Link>
+            <input
+              type="submit"
+              className="SignUpSubmitButton"
+              value="CREATE FREE ACCOUNT"
+            />
             <p
               style={{
                 opacity: "1",
@@ -207,6 +227,7 @@ const SignupPage = () => {
           />
           <p className="POR">OR</p>
           <div
+            onClick={handlegoogle}
             style={{
               opacity: "0.98",
               fontSize: "14px",
