@@ -1,28 +1,84 @@
 {
   "timetracker": [
-   
     {
-      "text": "ge",
-      "select": "Redux",
-      "StartTime": "13-25",
-      "endTime": "13-25",
-      "timer": "00 : 00 : 02",
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
+      "id": 1
+    },
+    {
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
+      "id": 2
+    },
+    {
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
       "id": 3
     },
     {
-      "text": "sf",
-      "select": "Redux",
-      "StartTime": "13-26",
-      "endTime": "13-26",
-      "timer": "00 : 00 : 04",
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
       "id": 4
     },
     {
-      "text": "gd",
-      "StartTime": "13-27",
-      "endTime": "13-28",
-      "timer": "00 : 00 : 01",
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
       "id": 5
+    },
+    {
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
+      "id": 6
+    },
+    {
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 06",
+      "id": 7
+    },
+    {
+      "text": "",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 16",
+      "id": 8
+    },
+    {
+      "text": "",
+      "select": "Thunk",
+      "StartTime": "20-17",
+      "endTime": "20-17",
+      "timer": "00 : 00 : 03",
+      "id": 9
+    },
+    {
+      "text": "",
+      "select": "Redux",
+      "StartTime": "20-17",
+      "endTime": "20-18",
+      "timer": "00 : 00 : 03",
+      "id": 10
+    },
+    {
+      "text": "",
+      "select": "Redux",
+      "StartTime": "20-17",
+      "endTime": "20-18",
+      "timer": "00 : 00 : 03",
+      "id": 11
     }
   ]
 }

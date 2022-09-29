@@ -1,6 +1,8 @@
 .main-container {
     display: flex;
-   
+    height:100vh;   
+    position:fixed;
+    z-index:10000
   }
   main {
     padding: 10px;

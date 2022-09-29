@@ -51,9 +51,11 @@ const SideBar = ({ children }) => {
         >
           <section className="routes">
           <NavLink
-                  to={"/tracker"}
-                  className="link"
-                  activeClassName="active"
+                  to={"/tracker/timetracker"}
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
+                 
                 >
                   <div className="icon"><MdOutlineWatchLater /></div>
                   <AnimatePresence>
@@ -73,8 +75,9 @@ const SideBar = ({ children }) => {
                 
                 <NavLink
                   to={"/calendar"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><VscCalendar /></div>
                   <AnimatePresence>
@@ -108,8 +111,9 @@ const SideBar = ({ children }) => {
                
                 <NavLink
                   to={ "/dashboard"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><MdOutlineDashboard /></div>
                   <AnimatePresence>
@@ -129,8 +133,9 @@ const SideBar = ({ children }) => {
 
                 <NavLink
                   to={"/reports"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><BsBarChart /></div>
                   <AnimatePresence>
@@ -164,8 +169,9 @@ const SideBar = ({ children }) => {
                
                 <NavLink
                   to={"/projects"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><HiOutlineUserGroup /></div>
                   <AnimatePresence>
@@ -185,8 +191,9 @@ const SideBar = ({ children }) => {
 
                 <NavLink
                   to={"/team"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><AiOutlineTeam/></div>
                   <AnimatePresence>
@@ -206,8 +213,9 @@ const SideBar = ({ children }) => {
                 
                 <NavLink
                   to={"/client"}
-                  className="link"
-                  activeClassName="active"
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><HiOutlineUserCircle/></div>
                   <AnimatePresence>
@@ -226,9 +234,10 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/tag"}
-                  className="link"
-                  activeClassName="active"
+                  to={"/tracker/tag"}
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><BsTag/></div>
                   <AnimatePresence>
@@ -247,9 +256,10 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/settings"}
-                  className="link"
-                  activeClassName="active"
+                  to={"/tracker/settings"}
+                  className={({ isActive }) =>
+                  isActive ? "active": "link"
+                }
                 >
                   <div className="icon"><IoSettingsOutline/></div>
                   <AnimatePresence>

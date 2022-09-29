@@ -5,10 +5,11 @@ export const postTimeTracker= (creds) => async (dispacth) => {
     
  try {
     let response= await  axios.post("http://localhost:8080/timetracker", creds)
-    dispacth ({
-        type:TIME_SUCCESS_POST,
-        payload:response.data
-    })
+    // dispacth ({
+    //     type:TIME_SUCCESS_POST,
+    //     payload:response.data
+    // })
+    
  } catch (e) {
     console.log(e, "action")
  }
