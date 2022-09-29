@@ -6,6 +6,7 @@ import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Tim
 const TimeTracker = () => {
   let {TimeData}=useSelector(store=> store.time)
   console.log(TimeData,"thelel")
+  
 
   let dispatch = useDispatch();
   let arr = new Date();

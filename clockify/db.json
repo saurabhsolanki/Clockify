@@ -5,13 +5,6 @@
       "StartTime": "20-17",
       "endTime": "20-17",
       "timer": "00 : 00 : 06",
-      "id": 1
-    },
-    {
-      "text": "",
-      "StartTime": "20-17",
-      "endTime": "20-17",
-      "timer": "00 : 00 : 06",
       "id": 2
     },
     {
@@ -36,46 +29,6 @@
       "id": 5
     },
     {
-<<<<<<< HEAD
-      "text": "hellodsafd",
-      "select": "Redux",
-      "StartTime": "18-20",
-      "endTime": "18-20",
-      "timer": "00 : 00 : 02",
-      "id": 7
-    },
-    {
-      "text": "kell boy",
-      "select": "Redux",
-      "StartTime": "18-34",
-      "endTime": "18-34",
-      "timer": "00 : 00 : 04",
-      "id": 8
-    },
-    {
-      "text": "ballu",
-      "select": "Redux",
-      "StartTime": "18-46",
-      "endTime": "18-46",
-      "timer": "00 : 00 : 04",
-      "id": 9
-    },
-    {
-      "text": "hdsfkahs",
-      "select": "Redux",
-      "StartTime": "18-49",
-      "endTime": "18-49",
-      "timer": "00 : 00 : 02",
-      "id": 10
-    },
-    {
-      "text": "nnnnn",
-      "select": "Redux",
-      "StartTime": "18-52",
-      "endTime": "18-52",
-      "timer": "00 : 00 : 02",
-      "id": 12
-=======
       "text": "",
       "StartTime": "20-17",
       "endTime": "20-17",
@@ -97,29 +50,12 @@
       "id": 8
     },
     {
-      "text": "",
-      "select": "Thunk",
-      "StartTime": "20-17",
-      "endTime": "20-17",
-      "timer": "00 : 00 : 03",
+      "text": "jhlkh",
+      "select": "Redux",
+      "StartTime": "22-49",
+      "endTime": "22-49",
+      "timer": "00 : 00 : 02",
       "id": 9
-    },
-    {
-      "text": "",
-      "select": "Redux",
-      "StartTime": "20-17",
-      "endTime": "20-18",
-      "timer": "00 : 00 : 03",
-      "id": 10
-    },
-    {
-      "text": "",
-      "select": "Redux",
-      "StartTime": "20-17",
-      "endTime": "20-18",
-      "timer": "00 : 00 : 03",
-      "id": 11
->>>>>>> 6232e8c8327033c925274fe0b4a7c53c82a458cc
     }
   ]
 }
