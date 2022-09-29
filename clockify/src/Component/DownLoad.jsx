@@ -1,14 +1,13 @@
-import React from 'react'
-import Navbar from './Navbar/Navbar'
+import React from "react";
+import Navbar from "./Navbar/Navbar";
 
 const DownLoad = () => {
   return (
     <>
-    <Navbar/>
-    <div style={{color: "black"}}>DownLoad</div>
+      <Navbar />
+      <div style={{ color: "black" }}>DownLoad</div>
     </>
-   
-  )
-}
+  );
+};
 
-export default DownLoad
+export default DownLoad;

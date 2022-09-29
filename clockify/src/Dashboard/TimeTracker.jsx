@@ -67,7 +67,7 @@ const TimeTracker = () => {
   },[dispatch])
 
   return (
-    <div id="main_container">
+    <div id="main_container" style={{"zIndex":"2000"}}>
       <div style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
         <div>
           <input
