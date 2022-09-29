@@ -11,6 +11,7 @@ import Login from './Component/Login';
 import Signup from './Component/Signup';
 import Footer from './Component/Footer/Footer'
 import Sidebar from './Dashboard/Sidebar';
+import TimeTracker from './Dashboard/TimeTracker';
 function App() {
   return (
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/traker' element= {<Sidebar/>} />    
       </Routes>
       {/* <Footer /> */}
+      <TimeTracker/>
     </div>
   );
 }

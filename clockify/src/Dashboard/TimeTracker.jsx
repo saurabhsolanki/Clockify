@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useCountdownTimer } from "use-countdown-timer";
+import { useDispatch, useSelector } from "react-redux";
+import { getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
 
 const TimeTracker = () => {
-  const [data, setData] = useState([]);
+  let {TimeData}=useSelector(store=> store.time)
+  console.log(TimeData,"thelel")
 
+  let dispatch = useDispatch();
+  let arr = new Date();
+  let [hours, minutes] = [arr.getHours(), arr.getMinutes()];
   const [text, setText] = useState("");
   const [select, setSelect] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
 
-  let arr = new Date().toTimeString().split(" ");
-  let time = arr[0].split(":");
-  let [hours, minutes] = time;
 
+  // let arr = new Date().toTimeString().split(" ");
   const [timer, setTimer] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -28,15 +32,6 @@ const TimeTracker = () => {
     setStartTime(`${hours}-${minutes}`);
   };
 
-  const handlePause = () => {
-    // Pause button logic here
-    clearInterval(countRef.current);
-    setIsPaused(false);
-    setIsActive(true);
-    setEndTime(`${hours}-${minutes}`);
-    setData([...data, showData]);
-    setIsPaused(true);
-  };
 
   const formatTime = () => {
     const getSeconds = `0${timer % 60}`.slice(-2);
@@ -45,14 +40,27 @@ const TimeTracker = () => {
     const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
-
-  let showData = {
-    text: text,
-    select: select,
-    StartTime: startTime,
-    endTime: endTime,
-    timer: formatTime(),
+  
+  const handlePause = () => {
+    let showData = {
+      text: text,
+      select: select,
+      StartTime: startTime,
+      endTime: `${hours}-${minutes}`,
+      timer: formatTime(),
+    };
+    // Pause button logic here
+    clearInterval(countRef.current);
+    setIsPaused(false);
+    setIsActive(true);
+    setEndTime(showData.endTime)
+    dispatch(postTimeTracker(showData))
+    dispatch(getTimeTracker())
   };
+
+  // useEffect(()=>{
+  //   dispatch(getTimeTracker())
+  // },[])
 
   return (
     <div id="main_container">
@@ -94,8 +102,8 @@ const TimeTracker = () => {
       </div>
 
       <div id="data_show_container">
-        {data.map((e) => (
-          <div style={{display:"flex", gap:"20px"}}>
+        {TimeData.map((e) => (
+          <div style={{ display: "flex", gap: "20px" }} key={e.id}>
             <p>{e.text}</p>
             <p>{e.select}</p>
             <p>{e.StartTime}--</p>
