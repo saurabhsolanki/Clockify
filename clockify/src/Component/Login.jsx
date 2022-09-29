@@ -35,7 +35,7 @@ const Login = () => {
             <Text marginLeft="53%" fontSize="14px" color="grey">
               Don't have an account?{" "}
               <Link
-                to="/login"
+                to="/signup"
                 style={{
                   fontWeight: "600",
                   color: "#1b74e4",
