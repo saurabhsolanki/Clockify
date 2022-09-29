@@ -12,6 +12,7 @@ import Signup from './Component/Signup';
 import Footer from './Component/Footer/Footer'
 import Sidebar from './Dashboard/Sidebar';
 import TimeTracker from './Dashboard/TimeTracker';
+import { DashRoute } from './Dashboard/DashRoute';
 function App() {
   return (
 
@@ -22,10 +23,12 @@ function App() {
         <Route path='/download' element={<DownLoad/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/traker' element= {<Sidebar/>} />    
+
+        <Route path='/tracker/*' element= {  <DashRoute/>} />    
       </Routes>
+    
       {/* <Footer /> */}
-      <TimeTracker/>
+      {/* <TimeTracker/> */}
     </div>
   );
 }
