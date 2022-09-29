@@ -7,11 +7,11 @@ import axios from "axios";
 
 export const postTimeTracker = (creds) => async (dispacth) => {
   try {
-    let response = await axios.post("http://localhost:8080/timetracker", creds);
-    // dispacth ({
-    //     type:TIME_SUCCESS_POST,
-    //     payload:response.data
-    // })
+    let response = await axios.post("http://localhost:8000/timetracker", creds);
+    console.log(response,"post")
+    dispacth ({
+        type:TIME_SUCCESS_POST,
+    })
   } catch (e) {
     console.log(e, "action");
   }
@@ -19,7 +19,7 @@ export const postTimeTracker = (creds) => async (dispacth) => {
 
 export const getTimeTracker = () => (dispatch) => {
   axios
-    .get("http://localhost:8080/timetracker")
+    .get("http://localhost:8000/timetracker")
     .then((d) => {
       console.log(d.data, "dhshf");
       dispatch({ type: TIME_SUCCESS_GET, payload: d.data });
@@ -30,9 +30,12 @@ export const getTimeTracker = () => (dispatch) => {
 };
 
 export const deleteTimeTracker = (id) => async (dispatch) => {
+  
   try {
-    let res = await axios.delete(`http://localhost:8080/timetracker/${id}`);
+    let res = await axios.delete(`http://localhost:8000/timetracker/${id}`);
     dispatch({ type: TIME_SUCCESS_DELETE, payload: { id: id } });
+   
+
     return res.data;
   } catch (error) {
     console.log("error of dlelte", error);

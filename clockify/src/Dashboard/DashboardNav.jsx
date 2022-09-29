@@ -17,11 +17,11 @@ const DashboardNav = ({onOpen}) => {
        <div className={style.contanier_info}>
         <div>Rohit Kumar's workspace</div>
         <button>Upgrade</button>
-        <div class={style.vertical_dotted_line}></div>
+        <div className={style.vertical_dotted_line}></div>
         <AiOutlineQuestionCircle size={21}/>
-        <div class={style.vertical_dotted_line}></div>
+        <div className={style.vertical_dotted_line}></div>
         <IoNotificationsOutline size={21}/>
-        <div class={style.vertical_dotted_line}></div>
+        <div className={style.vertical_dotted_line}></div>
         <div className={style.user}>RK</div>
 
        </div>

@@ -55,16 +55,16 @@ const TimeTracker = () => {
     setIsActive(true);
     setEndTime(showData.endTime)
     dispatch(postTimeTracker(showData))
-    // dispatch(getTimeTracker())
   };
 
   
   const deleteTime=(id)=>{
     dispatch(deleteTimeTracker(id))
+    dispatch(getTimeTracker())
   }
   useEffect(()=>{
     dispatch(getTimeTracker())
-  },[dispatch])
+  },[endTime])
 
   return (
     <div id="main_container" style={{"zIndex":"2000"}}>

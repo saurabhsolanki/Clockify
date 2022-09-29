@@ -13,7 +13,6 @@ export const TimeTrackerReducer = (state = initData, { type, payload }) => {
     case TIME_SUCCESS_POST: {
       return {
         ...state,
-        TimeData: payload,
       };
     }
 
