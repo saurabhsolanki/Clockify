@@ -7,10 +7,10 @@ import axios from "axios";
 
 export const postTimeTracker = (creds) => async (dispacth) => {
   try {
-    let response = await axios.post("http://localhost:8000/timetracker", creds);
-    console.log(response,"post")
+    let response = await axios.post("https://advsaurabh.herokuapp.com/timetrackers", creds);
+    console.log(response.data,"post")
     dispacth ({
-        type:TIME_SUCCESS_POST,
+        type:TIME_SUCCESS_POST,payload:response.data
     })
   } catch (e) {
     console.log(e, "action");
@@ -19,7 +19,7 @@ export const postTimeTracker = (creds) => async (dispacth) => {
 
 export const getTimeTracker = () => (dispatch) => {
   axios
-    .get("http://localhost:8000/timetracker")
+    .get("https://advsaurabh.herokuapp.com/timetrackers")
     .then((d) => {
       console.log(d.data, "dhshf");
       dispatch({ type: TIME_SUCCESS_GET, payload: d.data });
@@ -32,7 +32,7 @@ export const getTimeTracker = () => (dispatch) => {
 export const deleteTimeTracker = (id) => async (dispatch) => {
   
   try {
-    let res = await axios.delete(`http://localhost:8000/timetracker/${id}`);
+    let res = await axios.delete(`https://advsaurabh.herokuapp.com/timetrackers/${id}`);
     dispatch({ type: TIME_SUCCESS_DELETE, payload: { id: id } });
    
 

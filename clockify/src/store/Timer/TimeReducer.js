@@ -13,18 +13,19 @@ export const TimeTrackerReducer = (state = initData, { type, payload }) => {
     case TIME_SUCCESS_POST: {
       return {
         ...state,
+        TimeData:[...state.TimeData,payload]
       };
     }
 
     case TIME_SUCCESS_GET: {
       return {
         ...state,
-        TimeData: payload,
+        TimeData: payload
       };
     }
 
     case TIME_SUCCESS_DELETE: {
-      const newItems = state.data.filter((cI) => cI.id !== payload.id);
+      const newItems = state.TimeData.filter((e) => e.id !== payload.id);
       return {
          ...state, 
          TimeData: newItems 
