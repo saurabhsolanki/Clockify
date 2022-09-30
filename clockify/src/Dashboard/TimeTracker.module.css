@@ -1,24 +1,48 @@
 #maintimeTrackerComopnent{
-    width: 70%;
-    margin: auto;
+    width: 85%;
+    /* margin: auto auto ; */
+    float: right;
+    /* background-color: #03a9f4; */
 }
 
 #MainDivForTimeTracking{
     display:flex;
-    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     border:1px solid #dedede;
     height:fit-content;
+    width: 90%;
+    margin: auto;
+    padding: 0px 10px 0px 10px;
     align-items:center;
     background:white;
-    justify-content:space-around;
+    margin-top: 50px;
+    justify-content:space-between;
     
+}
+.projectlist{
+    display:flex;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    border:1px solid #dedede;
+    height:fit-content;
+    width: 90%;
+    margin: auto;
+    padding: 0px 10px 0px 10px;
+    align-items:center;
+    background:white;
+    margin-top: 10px;
+    justify-content:space-between;
+
+}
+.startclr{
+    background-color: #03a9f4 !important;
+      
 }
 #TimeTrackerInput{
     height:40px;
     margin:10px 0px 10px 20px;
     padding:5px 15px;
     font-size:14px;
-    width:100%;
+    width:90;
     border-radius: 1px solid red;
 }
 #MainDivForTimeTracking Button{

@@ -9,13 +9,14 @@ import { MdOutlineDashboard} from "react-icons/md";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import "./Sidebar.css"
+import style from "./Sidebar.module.css"
 import DashboardNav from "./DashboardNav";
 
 
-const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+const SideBar = ({isOpen}) => {
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
+ 
   const showAnimation = {
     hidden: {
       width: 0,
@@ -35,29 +36,27 @@ const SideBar = ({ children }) => {
 
   return (
     <>
-    <DashboardNav onOpen={toggle} />
-      <div className="main-container">
+      <div className={style.main_container}>
         <motion.div
           animate={{
             width: isOpen ? "200px" : "45px",
-
             transition: {
               duration: 0.5,
               type: "spring",
               damping: 10,
             },
           }}
-          className={`sidebar `}
+          className={style.sidebar }
         >
-          <section className="routes">
+          <section className={style.routes}>
           <NavLink
-                  to={"/tracker/timetracker"}
+                  to={"/dashboardpanel/timetracker"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                  
                 >
-                  <div className="icon"><MdOutlineWatchLater /></div>
+                  <div className={style.icon}><MdOutlineWatchLater /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -65,7 +64,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        Time Tracker
                       </motion.div>
@@ -74,12 +73,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
                 
                 <NavLink
-                  to={"/calendar"}
+                  to={"/dashboardpanel/calender"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active:   style.link
                 }
                 >
-                  <div className="icon"><VscCalendar /></div>
+                  <div className={style.icon}><VscCalendar /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -87,7 +86,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        CALENDAR
                       </motion.div>
@@ -102,7 +101,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        ANALYZE
                       </motion.div>
@@ -110,12 +109,12 @@ const SideBar = ({ children }) => {
                   </AnimatePresence>
                
                 <NavLink
-                  to={ "/dashboard"}
+                  to={ "/dashboardpanel/dashboard"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><MdOutlineDashboard /></div>
+                  <div className={style.icon}><MdOutlineDashboard /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -123,7 +122,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                       DASHBOARD
                       </motion.div>
@@ -132,12 +131,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/reports"}
+                  to={"/dashboardpanel/reports"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><BsBarChart /></div>
+                  <div className={style.icon}><BsBarChart /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -145,7 +144,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        REPORTS
                       </motion.div>
@@ -160,7 +159,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        MANAGE
                       </motion.div>
@@ -168,12 +167,12 @@ const SideBar = ({ children }) => {
                   </AnimatePresence>
                
                 <NavLink
-                  to={"/projects"}
+                  to={"/dashboardpanel/projects"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><HiOutlineUserGroup /></div>
+                  <div className={style.icon}><HiOutlineUserGroup /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -181,7 +180,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                         PROJECTS
                       </motion.div>
@@ -190,12 +189,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/team"}
+                  to={"/dashboardpanel/teams"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><AiOutlineTeam/></div>
+                  <div className={style.icon}><AiOutlineTeam/></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -203,7 +202,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                         TEAM
                       </motion.div>
@@ -212,12 +211,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
                 
                 <NavLink
-                  to={"/client"}
+                  to={"/dashboardpanel/clients"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><HiOutlineUserCircle/></div>
+                  <div className={style.icon}><HiOutlineUserCircle/></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -225,7 +224,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                         CLIENT
                       </motion.div>
@@ -234,12 +233,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/tracker/tag"}
+                  to={"/dashboardpanel/tags"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><BsTag/></div>
+                  <div className={style.icon}><BsTag/></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -247,7 +246,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        TAGS
                       </motion.div>
@@ -256,12 +255,12 @@ const SideBar = ({ children }) => {
                 </NavLink>
 
                 <NavLink
-                  to={"/tracker/settings"}
+                  to={"/dashboardpanel/settings"}
                   className={({ isActive }) =>
-                  isActive ? "active": "link"
+                  isActive ? style.active: style.link
                 }
                 >
-                  <div className="icon"><IoSettingsOutline/></div>
+                  <div className={style.icon}><IoSettingsOutline/></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -269,7 +268,7 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
                        SETTINGS
                       </motion.div>
@@ -279,7 +278,10 @@ const SideBar = ({ children }) => {
           </section>
         </motion.div>
 
-        <main>{children}</main>
+
+
+        
+
       </div>
     </>
   );
