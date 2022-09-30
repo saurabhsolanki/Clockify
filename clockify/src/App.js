@@ -7,16 +7,25 @@ import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import { DashRoute } from "./Dashboard/DashRoute";
 import Home from "./Component/Home";
+import Require from "./Component/RequireRoute/Require";
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/features" element={<Features />} />
-        <Route path="/download" element={<DownLoad />} />
+        <Route path="/features" element={
+          <Require>
+            <Features />
+            </Require>
+        } />
+        <Route path="/download" element={<DownLoad/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/tracker/*" element={<DashRoute />} />
+        <Route path="/tracker/*" element={
+           <Require>
+            <DashRoute/>
+            </Require>
+        } />
       </Routes>
 
       {/* <Footer /> */}
