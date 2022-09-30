@@ -1,0 +1,41 @@
+#maintimeTrackerComopnent{
+    width: 70%;
+    margin: auto;
+}
+
+#MainDivForTimeTracking{
+    display:flex;
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+    border:1px solid #dedede;
+    height:fit-content;
+    align-items:center;
+    background:white;
+    justify-content:space-around;
+    
+}
+#TimeTrackerInput{
+    height:40px;
+    margin:10px 0px 10px 20px;
+    padding:5px 15px;
+    font-size:14px;
+    width:100%;
+    border-radius: 1px solid red;
+}
+#MainDivForTimeTracking Button{
+    border-radius: 1px solid red;
+}
+
+.MainDivForTimeTrackingLeftPart:hover{
+    border:1px solid #dedede;
+}
+.MainDivForTimeTrackingRightPartSubDiv{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.MainDivForTimeTrackingRightPart{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-right:10px;
+}

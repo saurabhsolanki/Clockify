@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useCountdownTimer } from "use-countdown-timer";
+import { Button, Input, Select, Text } from '@chakra-ui/react'
+import "./TimeTracker.css"
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
 
@@ -48,36 +49,38 @@ const TimeTracker = () => {
     timer: formatTime(),
   };
   const handlePause = () => {
-    
     // Pause button logic here
     clearInterval(countRef.current);
     setIsPaused(false);
     setIsActive(true);
     setEndTime(showData.endTime)
     dispatch(postTimeTracker(showData))
+    // dispatch(getTimeTracker())
   };
 
   
   const deleteTime=(id)=>{
     dispatch(deleteTimeTracker(id))
-    dispatch(getTimeTracker())
+    // dispatch(getTimeTracker())
   }
-  useEffect(()=>{
-    dispatch(getTimeTracker())
-  },[endTime])
+  // useEffect(()=>{
+  //   dispatch(getTimeTracker())
+  //   deleteTime()
+  // },[])
 
   return (
-    <div id="main_container" style={{"zIndex":"2000"}}>
-      <div style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
+    <div  style={{"zIndex":"2000"}} id="maintimeTrackerComopnent">
+      <div id="MainDivForTimeTracking" style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
         <div>
-          <input
+          <Input
+          id="TimeTrackerInput"
             type="text"
             placeholder="What are you working on"
             onChange={(e) => setText(e.target.value)}
           />
         </div>
         <div>
-          <select
+          <Select
             name="Project"
             id=""
             onChange={(e) => setSelect(e.target.value)}
@@ -85,35 +88,35 @@ const TimeTracker = () => {
             <option value="React">Project</option>
             <option value="Redux">Redux</option>
             <option value="Thunk">Thunk</option>
-          </select>
+          </Select>
         </div>
         <div>
           {" "}
-          <button>tag</button>
+          <Button>tag</Button>
         </div>
         <div>
           <p>{formatTime()}</p>
         </div>
         <div>
           {!isActive && !isPaused ? (
-            <button onClick={handleStart}>Start</button>
+            <Button onClick={handleStart}>Start</Button>
           ) : (
-            <button onClick={handlePause}>
+            <Button onClick={handlePause}>
               {isPaused ? "Pause" : "Start"}
-            </button>
+            </Button>
           )}
         </div>
       </div>
 
       <div id="data_show_container">
-        {TimeData.map((e) => (
+        {TimeData?.map((e) => (
           <div style={{ display: "flex", gap: "20px" }} key={e.id}>
             <p>{e.text}</p>
             <p>{e.select}</p>
             <p>{e.StartTime}--</p>
             <p>{e.endTime}</p>
             <p>{e.timer}</p>
-            <button onClick={()=>deleteTime(e.id)}>Del</button>
+            <Button onClick={()=>deleteTime(e.id)}>Del</Button>
           </div>
         ))}
       </div>

@@ -8,9 +8,9 @@ import axios from "axios";
 export const postTimeTracker = (creds) => async (dispacth) => {
   try {
     let response = await axios.post("http://localhost:8000/timetracker", creds);
-    console.log(response,"post")
+    console.log(response.data,"post")
     dispacth ({
-        type:TIME_SUCCESS_POST,
+        type:TIME_SUCCESS_POST,payload:response.data
     })
   } catch (e) {
     console.log(e, "action");
