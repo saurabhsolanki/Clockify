@@ -9,7 +9,7 @@ const StartTrack = () => {
           paddingTop="40px"
           margin="auto"
           width="90%"
-          fontSize={{ base: "24px", md: "40px", lg: "46px" }}
+          fontSize={{ base: "24px", md: "38px", lg: "42px" }}
         >
           Start tracking time with Clockify
         </Text>
