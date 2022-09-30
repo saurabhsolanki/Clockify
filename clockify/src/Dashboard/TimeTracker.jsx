@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Input, Select, Text } from '@chakra-ui/react'
-import "./TimeTracker.css"
+import  style from"./TimeTracker.module.css"
 import { useDispatch, useSelector } from "react-redux";
+import {RiDeleteBinLine} from "react-icons/ri"
 import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
 
 const TimeTracker = () => {
   let {TimeData}=useSelector(store=> store.time)
+  const {isopen}=useSelector((store)=>store.checkOpen)
   console.log(TimeData,"thelel")
 
   let dispatch = useDispatch();
@@ -30,7 +32,7 @@ const TimeTracker = () => {
     countRef.current = setInterval(() => {
       setTimer((timer) => timer + 1);
     }, 1000);
-    setStartTime(`${hours}-${minutes}`);
+    setStartTime(`${hours}:${minutes}`);
   };
 
 
@@ -45,7 +47,7 @@ const TimeTracker = () => {
     text: text,
     select: select,
     StartTime: startTime,
-    endTime: `${hours}-${minutes}`,
+    endTime: `${hours}:${minutes}`,
     timer: formatTime(),
   };
   const handlePause = () => {
@@ -63,17 +65,17 @@ const TimeTracker = () => {
     dispatch(deleteTimeTracker(id))
     // dispatch(getTimeTracker())
   }
-  // useEffect(()=>{
-  //   dispatch(getTimeTracker())
-  //   deleteTime()
-  // },[])
+  useEffect(()=>{
+    dispatch(getTimeTracker())
+    // deleteTime()
+  },[])
 
   return (
-    <div  style={{"zIndex":"2000"}} id="maintimeTrackerComopnent">
-      <div id="MainDivForTimeTracking" style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
+    <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
+      <div id={style.MainDivForTimeTracking} >
         <div>
           <Input
-          id="TimeTrackerInput"
+          id={style.TimeTrackerInput}
             type="text"
             placeholder="What are you working on"
             onChange={(e) => setText(e.target.value)}
@@ -98,25 +100,26 @@ const TimeTracker = () => {
           <p>{formatTime()}</p>
         </div>
         <div>
-          {!isActive && !isPaused ? (
+          { <Button className={!isPaused ? style.startclr : style.stopclr} onClick={isPaused ?handlePause : handleStart}>{!isPaused ? "START" : "STOP"}</Button>}
+          {/* {!isActive && !isPaused ? (
             <Button onClick={handleStart}>Start</Button>
           ) : (
             <Button onClick={handlePause}>
               {isPaused ? "Pause" : "Start"}
             </Button>
-          )}
+          )} */}
         </div>
       </div>
 
-      <div id="data_show_container">
+      <div id={style.data_show_container}>
         {TimeData?.map((e) => (
-          <div style={{ display: "flex", gap: "20px" }} key={e.id}>
+          <div className={style.projectlist} style={{ display: "flex", gap: "20px" }} key={e.id}>
             <p>{e.text}</p>
             <p>{e.select}</p>
             <p>{e.StartTime}--</p>
             <p>{e.endTime}</p>
             <p>{e.timer}</p>
-            <Button onClick={()=>deleteTime(e.id)}>Del</Button>
+            <Button onClick={()=>deleteTime(e.id)}><RiDeleteBinLine/></Button>
           </div>
         ))}
       </div>

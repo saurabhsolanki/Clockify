@@ -1,8 +1,13 @@
 .nav{
-    border: 1px solid black;
-    padding:8px 18px 8px 18px;
+    width: 100%;
+    height: 50px;
     display: flex;
     justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position:fixed;
+    top:0;
+    z-index:10000;
+    background:white;
 }
 .contanier_btn_logo{
     display: flex;
