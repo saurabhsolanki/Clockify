@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useCountdownTimer } from "use-countdown-timer";
+import { Button, Input, Select, Text } from '@chakra-ui/react'
+import  style from"./TimeTracker.module.css"
 import { useDispatch, useSelector } from "react-redux";
-import { getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
+import {RiDeleteBinLine} from "react-icons/ri"
+import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
 
 const TimeTracker = () => {
   let {TimeData}=useSelector(store=> store.time)
+  const {isopen}=useSelector((store)=>store.checkOpen)
   console.log(TimeData,"thelel")
 
   let dispatch = useDispatch();
@@ -29,7 +32,7 @@ const TimeTracker = () => {
     countRef.current = setInterval(() => {
       setTimer((timer) => timer + 1);
     }, 1000);
-    setStartTime(`${hours}-${minutes}`);
+    setStartTime(`${hours}:${minutes}`);
   };
 
 
@@ -40,40 +43,46 @@ const TimeTracker = () => {
     const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
-  
+  let showData = {
+    text: text,
+    select: select,
+    StartTime: startTime,
+    endTime: `${hours}:${minutes}`,
+    timer: formatTime(),
+  };
   const handlePause = () => {
-    let showData = {
-      text: text,
-      select: select,
-      StartTime: startTime,
-      endTime: `${hours}-${minutes}`,
-      timer: formatTime(),
-    };
     // Pause button logic here
     clearInterval(countRef.current);
     setIsPaused(false);
     setIsActive(true);
     setEndTime(showData.endTime)
     dispatch(postTimeTracker(showData))
-    dispatch(getTimeTracker())
+    // dispatch(getTimeTracker())
   };
 
-  // useEffect(()=>{
-  //   dispatch(getTimeTracker())
-  // },[])
+  
+  const deleteTime=(id)=>{
+    dispatch(deleteTimeTracker(id))
+    // dispatch(getTimeTracker())
+  }
+  useEffect(()=>{
+    dispatch(getTimeTracker())
+    // deleteTime()
+  },[])
 
   return (
-    <div id="main_container">
-      <div style={{ display: "flex", border: "1px solid black", gap: "10px" }}>
+    <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
+      <div id={style.MainDivForTimeTracking} >
         <div>
-          <input
+          <Input
+          id={style.TimeTrackerInput}
             type="text"
             placeholder="What are you working on"
             onChange={(e) => setText(e.target.value)}
           />
         </div>
         <div>
-          <select
+          <Select
             name="Project"
             id=""
             onChange={(e) => setSelect(e.target.value)}
@@ -81,34 +90,36 @@ const TimeTracker = () => {
             <option value="React">Project</option>
             <option value="Redux">Redux</option>
             <option value="Thunk">Thunk</option>
-          </select>
+          </Select>
         </div>
         <div>
           {" "}
-          <button>tag</button>
+          <Button>tag</Button>
         </div>
         <div>
           <p>{formatTime()}</p>
         </div>
         <div>
-          {!isActive && !isPaused ? (
-            <button onClick={handleStart}>Start</button>
+          { <Button className={!isPaused ? style.startclr : style.stopclr} onClick={isPaused ?handlePause : handleStart}>{!isPaused ? "START" : "STOP"}</Button>}
+          {/* {!isActive && !isPaused ? (
+            <Button onClick={handleStart}>Start</Button>
           ) : (
-            <button onClick={handlePause}>
+            <Button onClick={handlePause}>
               {isPaused ? "Pause" : "Start"}
-            </button>
-          )}
+            </Button>
+          )} */}
         </div>
       </div>
 
-      <div id="data_show_container">
-        {TimeData.map((e) => (
-          <div style={{ display: "flex", gap: "20px" }} key={e.id}>
+      <div id={style.data_show_container}>
+        {TimeData?.map((e) => (
+          <div className={style.projectlist} style={{ display: "flex", gap: "20px" }} key={e.id}>
             <p>{e.text}</p>
             <p>{e.select}</p>
             <p>{e.StartTime}--</p>
             <p>{e.endTime}</p>
             <p>{e.timer}</p>
+            <Button onClick={()=>deleteTime(e.id)}><RiDeleteBinLine/></Button>
           </div>
         ))}
       </div>

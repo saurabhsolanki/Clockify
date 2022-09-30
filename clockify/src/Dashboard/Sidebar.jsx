@@ -9,145 +9,14 @@ import { MdOutlineDashboard} from "react-icons/md";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import "./Sidebar.css"
+import style from "./Sidebar.module.css"
 import DashboardNav from "./DashboardNav";
-const routes = [
-  {
-    path: "/tracker",
-    name: "Time Tracker",
-    icon: <MdOutlineWatchLater />,
-  },
-  {
-    path: "/calendar",
-    name: "CALENDAR",
-    icon: <VscCalendar />,
-  },
-  {
-  
-    name: "ANALYZE",
-    icon: "",
-  },
-  {
-    path: "/dashboard",
-    name: "DASHBOARD",
-    icon: <MdOutlineDashboard />,
-  },
-  {
-    path: "/reports",
-    name: "REPORTS",
-    icon: <BsBarChart />,
-  },
-  {
+
+
+const SideBar = ({isOpen}) => {
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
  
-    name: "MANAGE",
-    icon: "",
-  },
-  {
-    path: "/projects",
-    name: "PROJECTS",
-    icon: <HiOutlineUserGroup />,
-  },
-  
-  {
-    path: "/team",
-    name: "TEAM",
-    icon: <AiOutlineTeam/>,
-  },
-  
-  {
-    path: "/client",
-    name: "CLIENT",
-    icon: <HiOutlineUserCircle/>,
-  },
-  
-  {
-    path: "/tag",
-    name: "TAGS",
-    icon: <BsTag/>,
-  },
-  {
-    path: "/settings",
-    name: "SETTINGS",
-    icon: <IoSettingsOutline/>,
-  },
-  
-  // {
-  //   path: "/file-manager",
-  //   name: "File Manager",
-  //   icon: <AiTwotoneFileExclamation />,
-  //   subRoutes: [
-  //     {
-  //       path: "/settings/profile",
-  //       name: "Profile ",
-  //       icon: <FaUser />,
-  //     },
-  //     {
-  //       path: "/settings/2fa",
-  //       name: "2FA",
-  //       icon: <FaLock />,
-  //     },
-  //     {
-  //       path: "/settings/billing",
-  //       name: "Billing",
-  //       icon: <FaMoneyBill />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "/order",
-  //   name: "Order",
-  //   icon: <BsCartCheck />,
-  // },
-  // {
-  //   path: "/settings",
-  //   name: "Settings",
-  //   icon: <BiCog />,
-  //   exact: true,
-  //   subRoutes: [
-  //     {
-  //       path: "/settings/profile",
-  //       name: "Profile ",
-  //       icon: <FaUser />,
-  //     },
-  //     {
-  //       path: "/settings/2fa",
-  //       name: "2FA",
-  //       icon: <FaLock />,
-  //     },
-  //     {
-  //       path: "/settings/billing",
-  //       name: "Billing",
-  //       icon: <FaMoneyBill />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "/saved",
-  //   name: "Saved",
-  //   icon: <AiFillHeart />,
-  // },
-];
-
-const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-  const inputAnimation = {
-    hidden: {
-      width: 0,
-      padding: 0,
-      transition: {
-        duration: 0.2,
-      },
-    },
-    show: {
-      width: "140px",
-      padding: "5px 15px",
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
   const showAnimation = {
     hidden: {
       width: 0,
@@ -167,62 +36,27 @@ const SideBar = ({ children }) => {
 
   return (
     <>
-    <DashboardNav onOpen={toggle} />
-      <div className="main-container">
+      <div className={style.main_container}>
         <motion.div
           animate={{
             width: isOpen ? "200px" : "45px",
-
             transition: {
               duration: 0.5,
               type: "spring",
               damping: 10,
             },
           }}
-          className={`sidebar `}
+          className={style.sidebar }
         >
-          
-         
-          {/* <div className="search">
-            <div className="search_icon">
-              <MdOutlineWatchLater />
-            </div>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.input
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={inputAnimation}
-                  type="text"
-                  placeholder="Search"
-                />
-              )}
-            </AnimatePresence>
-          </div> */}
-
-
-          <section className="routes">
-            {routes.map((route, index) => {
-              // if (route.subRoutes) {
-              //   return (
-              //     <SidebarMenu
-              //       setIsOpen={setIsOpen}
-              //       route={route}
-              //       showAnimation={showAnimation}
-              //       isOpen={isOpen}
-              //     />
-              //   );
-              // }
-
-              return (
-                <NavLink
-                  to={route?.path}
-                  key={index}
-                  className="link"
-                  activeClassName="active"
+          <section className={style.routes}>
+          <NavLink
+                  to={"/dashboardpanel/timetracker"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                 
                 >
-                  <div className="icon">{route.icon}</div>
+                  <div className={style.icon}><MdOutlineWatchLater /></div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -230,34 +64,224 @@ const SideBar = ({ children }) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="link_text"
+                        className={style.link_text}
                       >
-                        {route.name}
+                       Time Tracker
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </NavLink>
-              );
-            })}
-          </section>
-          {/* <div className="top_section">
-            <AnimatePresence>
-              {isOpen && (
-                <motion.h1
-                  variants={showAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="logo"
+                
+                <NavLink
+                  to={"/dashboardpanel/calender"}
+                  className={({ isActive }) =>
+                  isActive ? style.active:   style.link
+                }
                 >
-                  ANALYZE
-                </motion.h1>
-              )}
-            </AnimatePresence>
-          </div> */}
+                  <div className={style.icon}><VscCalendar /></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       CALENDAR
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       ANALYZE
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+               
+                <NavLink
+                  to={ "/dashboardpanel/dashboard"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><MdOutlineDashboard /></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                      DASHBOARD
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboardpanel/reports"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><BsBarChart /></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       REPORTS
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+       
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       MANAGE
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+               
+                <NavLink
+                  to={"/dashboardpanel/projects"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><HiOutlineUserGroup /></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                        PROJECTS
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboardpanel/teams"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><AiOutlineTeam/></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                        TEAM
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+                
+                <NavLink
+                  to={"/dashboardpanel/clients"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><HiOutlineUserCircle/></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                        CLIENT
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboardpanel/tags"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><BsTag/></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       TAGS
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboardpanel/settings"}
+                  className={({ isActive }) =>
+                  isActive ? style.active: style.link
+                }
+                >
+                  <div className={style.icon}><IoSettingsOutline/></div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className={style.link_text}
+                      >
+                       SETTINGS
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
+          </section>
         </motion.div>
 
-        <main>{children}</main>
+
+
+        
+
       </div>
     </>
   );
