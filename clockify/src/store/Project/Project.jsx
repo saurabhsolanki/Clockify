@@ -65,6 +65,7 @@ function Project() {
   };
 
   useEffect(() => {
+    handleClick()
     dispatch(getProjectapi())
   }, []);
 

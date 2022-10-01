@@ -21,7 +21,7 @@ export const getTimeTracker = () => (dispatch) => {
   axios
     .get("https://advsaurabh.herokuapp.com/timetrackers")
     .then((d) => {
-      console.log(d.data, "dhshf");
+      // console.log(d.data, "dhshf");
       dispatch({ type: TIME_SUCCESS_GET, payload: d.data });
     })
     .catch((e) => {
