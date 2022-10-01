@@ -1,11 +1,13 @@
 import {
+  GET_PROJECT_ERROR,
   GET_PROJECT_LOADING,
   GET_PROJECT_SUCCESS,
+  PROJECT_POST_ERROR,
   PROJECT_POST_LOADING,
   PROJECT_POST_SUCCESS,
 } from "./project.types";
 
-initialstate = {
+let initialstate = {
   loading: false,
   error: false,
   token: "",
