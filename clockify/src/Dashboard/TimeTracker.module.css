@@ -41,7 +41,11 @@
 }
 .startclr{
     background-color: #03a9f4 !important;
-      
+    color: white;
+}
+.stopclr{
+    background-color: red!important;
+    color: white;
 }
 #TimeTrackerInput{
     height:40px;
