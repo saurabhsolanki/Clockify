@@ -10,14 +10,17 @@ import {
 
 export const getProjectapi = () => async (dispatch) => {
   dispatch({ type: GET_PROJECT_LOADING });
-  await axios.get("http://localhost:8000/projects").then((d) => {
-    dispatch({
-      type: GET_PROJECT_SUCCESS,
-      payload: d.data,
-    }).catch((e) => {
+  await axios
+    .get("http://localhost:8000/projects")
+    .then((d) => {
+      dispatch({
+        type: GET_PROJECT_SUCCESS,
+        payload: d.data,
+      });
+    })
+    .catch((e) => {
       dispatch({ type: GET_PROJECT_ERROR });
     });
-  });
 };
 
 export const projectPostApi = (data) => async (dispatch) => {

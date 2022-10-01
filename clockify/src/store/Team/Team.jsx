@@ -40,7 +40,7 @@ import { teamPostApi, getTeamApi } from "./team.action";
 function Team() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let {loading , error , data} = useSelector(store=>store.team)
-  console.log(data)
+  console.log(data,"team")
   // const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const [forms, setForms] = useState({

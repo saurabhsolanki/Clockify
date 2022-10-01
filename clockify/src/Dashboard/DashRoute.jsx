@@ -7,7 +7,7 @@ import Team from "../store/Team/Team"
 import Clients from './Clients'
 import Dashboard from './Dashboard'
 import DashboardNav from './DashboardNav'
-import Projects from './Projects'
+import Projects from '../store/Project/Project'
 import Reports from './Reports'
 import Setting from './Setting'
 import SideBar from './Sidebar'
