@@ -21,6 +21,8 @@ export const DashRoute = () => {
   const toggle = () =>{
     setIsOpen(!isOpen);
     dispatch(isOpen?close():open())
+
+    
    // console.log(isOpen?"osdpifgiopjgvihd":"tueroiioertyiort")
 
   } 
