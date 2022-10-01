@@ -8,12 +8,13 @@ import { Logout } from "../store/Auth/auth.action";
 import { useNavigate } from "react-router-dom";
 
 const DashboardNav = ({ onOpen }) => {
-  const user = useSelector((store) => store.auth.user);
+  const user = useSelector((store) => store.auth.email);
+  console.log(user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const LOGOUT = () => {
-    if (user) {
+    if (user === "") {
       dispatch(Logout);
     }
     navigate("/");
@@ -36,7 +37,7 @@ const DashboardNav = ({ onOpen }) => {
       </div>
 
       <div className={style.contanier_info}>
-        <div>Rohit Kumar's workspace</div>
+        <div>{user}</div>
         <button>Upgrade</button>
         <div className={style.vertical_dotted_line}></div>
         <AiOutlineQuestionCircle size={21} />

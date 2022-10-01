@@ -12,7 +12,7 @@ export const Singup = (email, password) => async (dispatch) =>{
         dispatch({ type: AUTH_Success,payload:res.user.uid})
         
     } catch (err) {
-        console.log("error",err)
+        alert(err)
         dispatch({ type: AUTH_Failed})
  
     }
@@ -24,14 +24,13 @@ export const LoginData = (email, password) =>async (dispatch)=>{
     dispatch({ type: AUTH_Loading })
     try {
         let res = await signInWithEmailAndPassword(auth, email, password)
-        console.log(res)
-        dispatch({ type: AUTH_login_Success, payload:res.user.uid })
-
+        console.log(res.user.email)
+        dispatch({ type: AUTH_login_Success, payload: { email: res.user.email, token: res.user.uid } })
+        // payload:res.user.uid
     } catch (err) {
         dispatch({ type: AUTH_Failed})
+        alert(err)
     }
-
-
 }
 
 export const Sigup_google =() => async(dispatch) => {
@@ -44,7 +43,8 @@ export const Sigup_google =() => async(dispatch) => {
         
     } catch (err) { 
         dispatch({ type: AUTH_Failed})
-        console.log(err)
+        // console.log(err)
+        alert(err)
     }
 }
 

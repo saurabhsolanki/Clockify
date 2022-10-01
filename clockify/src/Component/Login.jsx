@@ -13,24 +13,30 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginData } from "../store/Auth/auth.action";
+import { LoginData, Sigup_google } from "../store/Auth/auth.action";
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [pass, setPass] = useState("");
-  const [pas, setPas] = useState("");
+  // const [pass, setPass] = useState("");
+  // const [pas, setPas] = useState("");
 
-  const user = useSelector((store) => store.auth.user);
+  const user = useSelector((store) => store.auth.token);
+  console.log(user);
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
+
+  const handlegoogle = () => {
+    dispatch(Sigup_google());
+  };
 
   const Submitdata = () => {
-    console.log(email, password);
+    // console.log(email, password);
     dispatch(LoginData(email, password));
   };
 
@@ -112,6 +118,7 @@ const Login = () => {
                 {/* <hr /> */}
               </Box>
               <div
+                onClick={handlegoogle}
                 style={{
                   opacity: "0.98",
                   fontSize: "14px",

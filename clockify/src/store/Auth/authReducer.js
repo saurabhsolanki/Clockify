@@ -1,11 +1,13 @@
-import { FaLastfmSquare } from "react-icons/fa"
+// import { FaLastfmSquare } from "react-icons/fa"
 import { AUTH_Failed, AUTH_GOOGLE_SUCCESS, AUTH_Loading, AUTH_login_Success, AUTH_Logout, AUTH_Success } from "./auth.type"
 
 const initalSate = {
     loading:false,
     error: false,
     isAuth:false,
-    user:localStorage.getItem("token")||""
+    email: localStorage.getItem("email") || "",
+    token: localStorage.getItem("token") || "",
+    
 
 }
 
@@ -20,17 +22,20 @@ export const authReducer = (state=initalSate,{type,payload}) => {
         }
  
         case AUTH_Success: {
+            localStorage.setItem("token", payload.token);
+            localStorage.setItem("email", payload.email);
             return {
                 ...state,
                 loading: false,
                 error: false,
                 isAuth:true,
-                user: payload
+                user: payload.email
              
             }
         }
         case AUTH_login_Success: {
             localStorage.setItem("token", payload.token);
+            localStorage.setItem("email", payload.email);
             return {
                 ...state,
                 loading: false,
@@ -63,6 +68,7 @@ export const authReducer = (state=initalSate,{type,payload}) => {
             
         case AUTH_Logout: {
             localStorage.removeItem("token");
+            localStorage.removeItem("email");
             return {
                 ...state,
                 loading: false,

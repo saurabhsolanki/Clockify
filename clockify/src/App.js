@@ -20,7 +20,7 @@ function App() {
         <Route path="/download" element={<DownLoad/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboardpanel" element={<DashRoute />} />
+        <Route path="/dashboardpanel/*" element={<DashRoute />} />
       </Routes>
     </div>
   );
