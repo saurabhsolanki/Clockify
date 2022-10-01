@@ -10,19 +10,14 @@ import {
 
 export const getTeamApi = () => async (dispatch) => {
   dispatch({ type: GET_TEAM_LOADING });
-  await axios
-    .get("http://localhost:8000/teams")
-    .then((d) => {
-  
-      dispatch({
-        type: GET_TEAM_SUCCESS,
-        payload: d.data,
-      });
-    })
-    .catch((e) => {
-      console.log(e);
-      dispatch({ type: GET_TEAM_ERROR });
-    });
+  try {
+    let res = await axios.get("http://localhost:8000/teams");
+    dispatch({type: GET_TEAM_SUCCESS,payload:res.data});
+    // console.log(res.data)
+    return res.data
+  } catch (error) {
+    dispatch({type:GET_TEAM_ERROR})
+  }
 };
 
 export const teamPostApi = (data) => async (dispatch) => {
