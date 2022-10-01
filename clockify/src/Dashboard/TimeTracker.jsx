@@ -57,6 +57,7 @@ const TimeTracker = () => {
     setIsActive(true);
     setEndTime(showData.endTime)
     dispatch(postTimeTracker(showData))
+    setTimer(null)
     // dispatch(getTimeTracker())
   };
 
@@ -70,11 +71,21 @@ const TimeTracker = () => {
     // deleteTime()
   },[])
 
+  const [isActiveColor, setIsActiveClolor] = useState(false);
+
+  const tagChange = () => {
+    // 👇️ toggle
+    setIsActiveClolor(current => !current);
+
+    // 👇️ or set to true
+    // setIsActive(true);
+  };
+
   return (
     <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
       <div id={style.MainDivForTimeTracking} >
         <div>
-          <Input
+          <Input width="150%"
           id={style.TimeTrackerInput}
             type="text"
             placeholder="What are you working on"
@@ -94,7 +105,7 @@ const TimeTracker = () => {
         </div>
         <div>
           {" "}
-          <Button>tag</Button>
+          <Button>$</Button>
         </div>
         <div>
           <p>{formatTime()}</p>
@@ -116,8 +127,13 @@ const TimeTracker = () => {
           <div className={style.projectlist} style={{ display: "flex", gap: "20px" }} key={e.id}>
             <p>{e.text}</p>
             <p>{e.select}</p>
-            <p>{e.StartTime}--</p>
+            <p>{e.StartTime}</p>
             <p>{e.endTime}</p>
+            <Button  style={{
+          backgroundColor: isActiveColor ? 'tomato' : '',
+          color: isActiveColor ? 'white' : '', padding:"10px 40px"
+        }}
+        onClick={tagChange}>$</Button>
             <p>{e.timer}</p>
             <Button onClick={()=>deleteTime(e.id)}><RiDeleteBinLine/></Button>
           </div>

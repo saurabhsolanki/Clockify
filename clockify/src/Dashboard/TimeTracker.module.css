@@ -33,6 +33,12 @@
     justify-content:space-between;
 
 }
+.projectlist p{
+    /* background-color: teal; */
+    padding: 10px 40px;
+    border: 0.5px solid rgb(67, 67, 67);
+    margin: 10px;
+}
 .startclr{
     background-color: #03a9f4 !important;
       
