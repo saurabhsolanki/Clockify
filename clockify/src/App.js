@@ -8,6 +8,7 @@ import Signup from "./Component/Signup";
 import { DashRoute } from "./Dashboard/DashRoute";
 import Home from "./Component/Home";
 import Require from "./Component/RequireRoute/Require";
+
 function App() {
   return (
     <div className="App">

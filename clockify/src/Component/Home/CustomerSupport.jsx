@@ -55,10 +55,10 @@ const CustomerSupport = () => {
           </Box>
           <Box>
             <Text fontSize="30px" fontWeight="bold">
-              24/7
+            1h
             </Text>
             <Text fontSize="19px" color="gray">
-              support anytime, <br /> anywhere
+            average response <br /> time
             </Text>
           </Box>
         </Flex>
@@ -68,10 +68,10 @@ const CustomerSupport = () => {
           </Box>
           <Box>
             <Text fontSize="30px" fontWeight="bold">
-              24/7
+            95%
             </Text>
             <Text fontSize="19px" color="gray">
-              support anytime, <br /> anywhere
+            satisfaction score <br /> (12k+ ratings)
             </Text>
           </Box>
         </Flex>
@@ -81,10 +81,10 @@ const CustomerSupport = () => {
           </Box>
           <Box>
             <Text fontSize="30px" fontWeight="bold">
-              24/7
+            99.99%
             </Text>
             <Text fontSize="19px" color="gray">
-              support anytime, <br /> anywhere
+            highest uptime <br /> levels
             </Text>
           </Box>
         </Flex>

@@ -7,7 +7,7 @@ import {
   TEAM_POST_SUCCESS,
 } from "./team.types";
 
-initialstate = {
+let initialstate = {
   loading: false,
   error: false,
   token: "",
@@ -30,6 +30,7 @@ export const teamReducer = (state = initialstate, { type, payload }) => {
       };
     }
     case GET_TEAM_SUCCESS: {
+      console.log(payload,"payload")
       return {
         ...state,
         loading: false,

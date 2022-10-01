@@ -8,22 +8,22 @@ import {
   TEAM_POST_SUCCESS,
 } from "./team.types";
 
-export const getTeamapi = () => async (dispatch) => {
+export const getTeamApi = () => async (dispatch) => {
   dispatch({ type: GET_TEAM_LOADING });
-  axios.get("http://localhost:8000/teams").then((d) => {
-    dispatch({
-      type: GET_TEAM_SUCCESS,
-      payload: d.data,
-    }).catch((e) => {
-      dispatch({ type: GET_TEAM_ERROR });
-    });
-  });
+  try {
+    let res = await axios.get("http://localhost:8000/teams");
+    dispatch({type: GET_TEAM_SUCCESS,payload:res.data});
+    // console.log(res.data)
+    return res.data
+  } catch (error) {
+    dispatch({type:GET_TEAM_ERROR})
+  }
 };
 
 export const teamPostApi = (data) => async (dispatch) => {
   dispatch({ type: TEAM_POST_LOADING });
   try {
-    let response = await axios.post("https:/localhost:8000/teams/add", data);
+    let response = await axios.post("http://localhost:8000/teams/add", data);
     dispatch({
       type: TEAM_POST_SUCCESS,
       payload: response.data,

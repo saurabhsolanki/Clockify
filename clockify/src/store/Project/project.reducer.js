@@ -14,7 +14,7 @@ let initialstate = {
   data: [],
 };
 
-export const teamReducer = (state = initialstate, { type, payload }) => {
+export const projectReducer = (state = initialstate, { type, payload }) => {
   switch (type) {
     case GET_PROJECT_LOADING: {
       return {

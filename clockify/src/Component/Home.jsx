@@ -11,6 +11,7 @@ import TimeManage from './Home/TimeManage'
 import TimeTracking from './Home/TimeTracking'
 import WhyTrack from './Home/WhyTrack'
 import Navbar from './Navbar/Navbar'
+import Footer from "./Footer/Footer"
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
         <Free/>
         <CustomerSupport/>
         <StartTrack/>
+        <Footer />
     </div>
     </>
   )
