@@ -12,7 +12,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/add", async () => {
+app.post("/add", async (req, res) => {
   let { email } = req.body;
   try {
     let user = await Team.findOne({ email });
@@ -26,4 +26,4 @@ app.post("/add", async () => {
   }
 });
 
-module.exports = app
+module.exports = app;

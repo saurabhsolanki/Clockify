@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const teamSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
+  name: { type: String },
+  email: { type: String },
   billableRate: { type: Number, min: 0 },
 });
 

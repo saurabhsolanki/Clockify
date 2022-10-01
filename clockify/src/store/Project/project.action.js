@@ -10,7 +10,7 @@ import {
 
 export const getProjectapi = () => async (dispatch) => {
   dispatch({ type: GET_PROJECT_LOADING });
-  axios.get("http://localhost:8000/projects").then((d) => {
+  await axios.get("http://localhost:8000/projects").then((d) => {
     dispatch({
       type: GET_PROJECT_SUCCESS,
       payload: d.data,
@@ -23,7 +23,7 @@ export const getProjectapi = () => async (dispatch) => {
 export const projectPostApi = (data) => async (dispatch) => {
   dispatch({ type: PROJECT_POST_LOADING });
   try {
-    let response = await axios.post("https:/localhost:8000/projects/add", data);
+    let response = await axios.post("http://localhost:8000/projects/add", data);
     dispatch({
       type: PROJECT_POST_SUCCESS,
       payload: response.data,
