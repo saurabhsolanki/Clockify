@@ -82,8 +82,6 @@ const TimeTracker = () => {
     // setIsActive(true);
   };
 
-<<<<<<< HEAD
-=======
   // getting project
   const x={
     name:"xyz"
@@ -95,7 +93,6 @@ const TimeTracker = () => {
     })
   }
 console.log(select,"oyerut")
->>>>>>> 93206117ad822871a2a996fec4965a190978ec50
   return (
     <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
       <div id={style.MainDivForTimeTracking} >
@@ -114,17 +111,11 @@ console.log(select,"oyerut")
             placeholder="Projects"
             onChange={(e) =>setProjectName(e.target.value)}
           >
-<<<<<<< HEAD
-            <option value="React">Project</option>
-            <option value="Redux">Redux</option>
-            <option value="Thunk">Thunk</option>
-=======
             {
               select?.map((e)=>(
                 <option value={e.name}>{e.name}</option>
               ))
             }
->>>>>>> 93206117ad822871a2a996fec4965a190978ec50
           </Select>
         </div>
         <div>
