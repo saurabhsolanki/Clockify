@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { close, open } from '../store/isOpen/isOpen.action'
-// import Team from '../Team/Team'
 import Calendar from './Calendar'
+import Team from "../store/Team/Team"
 import Clients from './Clients'
 import Dashboard from './Dashboard'
 import DashboardNav from './DashboardNav'
@@ -40,7 +40,7 @@ export const DashRoute = () => {
             <Route path={'/projects'} element={<Projects/>}/>
             <Route path={'/reports'} element={<Reports/>}/>
             <Route path={'/settings'} element={<Setting/>}/>
-            {/* <Route path={'/teams'} element={<Team/>}/> */}
+            <Route path={'/teams'} element={<Team/>}/>
             <Route path={'/tags'} element={<Tags/>}/>
 
         </Routes>
