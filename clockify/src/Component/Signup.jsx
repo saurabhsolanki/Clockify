@@ -79,7 +79,7 @@ const SignUpStyling = styled.div`
   }
 `;
 const SignupPage = () => {
-  const user = useSelector((store) => store.auth.user);
+  const user = useSelector((store) => store.auth.token);
   const navigate = useNavigate();
   console.log(user);
 
@@ -99,7 +99,7 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/tracker/*");
+      navigate("/dashboardpanel");
     }
   }, [user]);
 

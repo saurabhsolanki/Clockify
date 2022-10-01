@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -12,10 +12,39 @@ import {
   Text,
   Image,
 } from "@chakra-ui/react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { LoginData, Sigup_google } from "../store/Auth/auth.action";
 const Login = () => {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // const [pass, setPass] = useState("");
+  // const [pas, setPas] = useState("");
+
+  const user = useSelector((store) => store.auth.token);
+  console.log(user);
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  // console.log(user);
+
+  const handlegoogle = () => {
+    dispatch(Sigup_google());
+  };
+
+  const Submitdata = () => {
+    // console.log(email, password);
+    dispatch(LoginData(email, password));
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboardpanel");
+    }
+  }, [user]);
 
   return (
     <>
@@ -54,12 +83,16 @@ const Login = () => {
               Log in{" "}
             </Heading>
             <FormControl isRequired padding="5%">
-              <Input placeholder="Enter your Email" />
+              <Input
+                placeholder="Enter your Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <InputGroup size="md" mt="20px">
                 <Input
                   pr="4.5rem"
                   type={show ? "text" : "password"}
                   placeholder="Enter password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -75,7 +108,7 @@ const Login = () => {
                   Forgot password?
                 </Box>
               </Box>
-              <Button w="100%" mt="20px">
+              <Button w="100%" mt="20px" onClick={Submitdata}>
                 LOGIN
               </Button>
 
@@ -85,6 +118,7 @@ const Login = () => {
                 {/* <hr /> */}
               </Box>
               <div
+                onClick={handlegoogle}
                 style={{
                   opacity: "0.98",
                   fontSize: "14px",
