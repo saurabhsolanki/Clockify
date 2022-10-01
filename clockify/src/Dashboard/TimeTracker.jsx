@@ -15,6 +15,7 @@ const TimeTracker = () => {
   let [hours, minutes] = [arr.getHours(), arr.getMinutes()];
   const [text, setText] = useState("");
   const [select, setSelect] = useState();
+  const [projectname,setProjectName]=useState()
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
 
@@ -45,7 +46,7 @@ const TimeTracker = () => {
   };
   let showData = {
     text: text,
-    select: select,
+    select:projectname,
     StartTime: startTime,
     endTime: `${hours}:${minutes}`,
     timer: formatTime(),
@@ -83,14 +84,16 @@ const TimeTracker = () => {
   };
 
   // getting project
-  
+  const x={
+    name:"xyz"
+  }
   const getProject=()=>{
     axios.get("http://localhost:8000/projects").then((res)=>{
       console.log(res.data,"poject")
       setSelect(res.data)
     })
   }
-
+console.log(select,"oyerut")
   return (
     <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
       <div id={style.MainDivForTimeTracking} >
@@ -106,16 +109,14 @@ const TimeTracker = () => {
           <Select
             name="Project"
             id=""
-            onChange={(e) => setSelect(e.target.value)}
+            placeholder="Projects"
+            onChange={(e) =>setProjectName(e.target.value)}
           >
             {
               select?.map((e)=>(
                 <option value={e.name}>{e.name}</option>
               ))
             }
-            {/* <option value="React">Project</option>
-            <option value="Redux">Redux</option>
-            <option value="Thunk">Thunk</option> */}
           </Select>
         </div>
         <div>
@@ -127,13 +128,6 @@ const TimeTracker = () => {
         </div>
         <div>
           { <Button className={!isPaused ? style.startclr : style.stopclr} onClick={isPaused ?handlePause : handleStart}>{!isPaused ? "START" : "STOP"}</Button>}
-          {/* {!isActive && !isPaused ? (
-            <Button onClick={handleStart}>Start</Button>
-          ) : (
-            <Button onClick={handlePause}>
-              {isPaused ? "Pause" : "Start"}
-            </Button>
-          )} */}
         </div>
       </div>
 
