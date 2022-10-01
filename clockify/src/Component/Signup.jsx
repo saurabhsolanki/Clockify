@@ -79,9 +79,9 @@ const SignUpStyling = styled.div`
   }
 `;
 const SignupPage = () => {
-  const user = useSelector((store) => store.auth.token);
+  const token = useSelector((store) => store.auth.user.token);
   const navigate = useNavigate();
-  console.log(user);
+  console.log(token);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -98,10 +98,10 @@ const SignupPage = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      navigate("/dashboardpanel");
+    if (token) {
+      navigate("/dashboardpanel/*");
     }
-  }, [user]);
+  }, [token]);
 
   return (
     <SignUpStyling>
