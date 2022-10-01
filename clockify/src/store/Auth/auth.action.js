@@ -24,7 +24,7 @@ export const LoginData = (email, password) =>async (dispatch)=>{
     dispatch({ type: AUTH_Loading })
     try {
         let res = await signInWithEmailAndPassword(auth, email, password)
-        console.log(res.user.email)
+        // console.log(res.user.email)
         dispatch({ type: AUTH_login_Success, payload: { email: res.user.email, token: res.user.uid } })
         // payload:res.user.uid
     } catch (err) {
