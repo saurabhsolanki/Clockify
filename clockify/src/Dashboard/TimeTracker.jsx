@@ -4,11 +4,11 @@ import  style from"./TimeTracker.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import {RiDeleteBinLine} from "react-icons/ri"
 import { deleteTimeTracker, getTimeTracker, postTimeTracker } from "../store/Timer/Time.action";
-import axios from "axios";
 
 const TimeTracker = () => {
   let {TimeData}=useSelector(store=> store.time)
   const {isopen}=useSelector((store)=>store.checkOpen)
+  console.log(TimeData,"thelel")
 
   let dispatch = useDispatch();
   let arr = new Date();
@@ -69,7 +69,6 @@ const TimeTracker = () => {
   useEffect(()=>{
     dispatch(getTimeTracker())
     // deleteTime()
-    getProject()
   },[])
 
   const [isActiveColor, setIsActiveClolor] = useState(false);
@@ -81,15 +80,6 @@ const TimeTracker = () => {
     // 👇️ or set to true
     // setIsActive(true);
   };
-
-  // getting project
-  
-  const getProject=()=>{
-    axios.get("http://localhost:8000/projects").then((res)=>{
-      console.log(res.data,"poject")
-      setSelect(res.data)
-    })
-  }
 
   return (
     <div   id={style.maintimeTrackerComopnent} style={isopen?{width: "85%"}:{width: "98%"}}>
@@ -108,14 +98,9 @@ const TimeTracker = () => {
             id=""
             onChange={(e) => setSelect(e.target.value)}
           >
-            {
-              select?.map((e)=>(
-                <option value={e.name}>{e.name}</option>
-              ))
-            }
-            {/* <option value="React">Project</option>
+            <option value="React">Project</option>
             <option value="Redux">Redux</option>
-            <option value="Thunk">Thunk</option> */}
+            <option value="Thunk">Thunk</option>
           </Select>
         </div>
         <div>
