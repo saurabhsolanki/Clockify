@@ -12,7 +12,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/add", async () => {
+app.post("/add", async (req, res) => {
   let { name } = req.body;
   try {
     let project = await Project.findOne({ name });
