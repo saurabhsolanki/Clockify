@@ -8,7 +8,6 @@ import {HiOutlineUserGroup ,HiOutlineUserCircle} from "react-icons/hi";
 import { MdOutlineDashboard} from "react-icons/md";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import SidebarMenu from "./SidebarMenu";
 import style from "./Sidebar.module.css"
 import DashboardNav from "./DashboardNav";
 
@@ -101,7 +100,8 @@ const SideBar = ({isOpen}) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className={style.link_text}
+                        className={style.heading}
+                       
                       >
                        ANALYZE
                       </motion.div>
@@ -159,7 +159,7 @@ const SideBar = ({isOpen}) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className={style.link_text}
+                        className={style.heading}
                       >
                        MANAGE
                       </motion.div>

@@ -19,10 +19,7 @@
   .icon{
       color: #000000e6;;
       font-size: 21px;
-      margin-bottom: 15px;
-      display: flex;
-      align-self: center;
-      border: 1px solid brown;
+      /* border: 1px solid brown; */
   }
   
   /* Sidebar */
@@ -65,22 +62,32 @@
   
     color: white;
   }
-  
+  .heading{
+    white-space: nowrap;
+    font-size: 14px;
+    color: gray;
+    display: flex;
+    align-items: center;
+   padding: 0px 8px;
+    /* border: 1px solid black; */
+  }
   .routes {
     display: flex;
     flex-direction: column;
     gap: 5px;
     height: calc(100vh - 50px);
-    border: 1px solid rgb(238, 18, 18);
-   
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(198, 210, 217);
   }
   .link {
-    border: 1px solid brown;
+    /* border: 1px solid rgb(168, 0, 235); */
+    margin-bottom: 8px;
     display: flex;
     color: white;
     align-items: center;
-    gap: 10px;
-    padding: 5px 10px;
+    gap: 5px;
+    padding: 10px 10px;
     border-right: 4px solid transparent;
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
@@ -95,7 +102,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border-right: 4px solid transparent;
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
@@ -105,7 +112,7 @@
     color: #000000e6;
     display: flex;
     align-items: center;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
   }
   
   .menu {
