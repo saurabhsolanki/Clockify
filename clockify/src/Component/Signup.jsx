@@ -99,7 +99,7 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/tracker/*");
+      navigate("/dashboardpanel/*");
     }
   }, [user]);
 

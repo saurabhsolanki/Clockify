@@ -5,7 +5,7 @@ const initalSate = {
     loading:false,
     error: false,
     isAuth:false,
-    user:""
+    user:localStorage.getItem("token")||""
 
 }
 
@@ -30,6 +30,7 @@ export const authReducer = (state=initalSate,{type,payload}) => {
             }
         }
         case AUTH_login_Success: {
+            localStorage.setItem("token", payload.token);
             return {
                 ...state,
                 loading: false,
@@ -51,6 +52,7 @@ export const authReducer = (state=initalSate,{type,payload}) => {
      }
             
         case AUTH_Failed: {
+            
             return {
                 ...state,
                 loading: false,
@@ -60,6 +62,7 @@ export const authReducer = (state=initalSate,{type,payload}) => {
         }
             
         case AUTH_Logout: {
+            localStorage.removeItem("token");
             return {
                 ...state,
                 loading: false,

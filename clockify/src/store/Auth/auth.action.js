@@ -19,6 +19,21 @@ export const Singup = (email, password) => async (dispatch) =>{
 
 }
 
+
+export const LoginData = (email, password) =>async (dispatch)=>{
+    dispatch({ type: AUTH_Loading })
+    try {
+        let res = await signInWithEmailAndPassword(auth, email, password)
+        console.log(res)
+        dispatch({ type: AUTH_login_Success, payload:res.user.uid })
+
+    } catch (err) {
+        dispatch({ type: AUTH_Failed})
+    }
+
+
+}
+
 export const Sigup_google =() => async(dispatch) => {
     try {
         const googleauth = new GoogleAuthProvider()
@@ -31,23 +46,9 @@ export const Sigup_google =() => async(dispatch) => {
         dispatch({ type: AUTH_Failed})
         console.log(err)
     }
-    
-    
-    
 }
 
-export const Login = (cred) =>async (dispatch)=>{
-    dispatch({ type: AUTH_Loading })
-    try {
-        let res = await signInWithEmailAndPassword(auth, cred)
-        dispatch({ type: AUTH_login_Success,payload: res })
 
-    } catch (err) {
-        dispatch({ type: AUTH_Failed})
-    }
-
-
-}
 
 export const Logout = () => ({ type: AUTH_Logout });
 

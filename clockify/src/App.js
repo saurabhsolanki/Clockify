@@ -14,18 +14,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/features" element={
-          <Require>
             <Features />
-            </Require>
         } />
         <Route path="/download" element={<DownLoad/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboardpanel/*" element={<DashRoute />} />
+        <Route path="/dashboardpanel" element={<DashRoute />} />
       </Routes>
-
-      {/* <Footer /> */}
-      {/* <TimeTracker/> */}
     </div>
   );
 }
