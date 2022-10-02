@@ -30,18 +30,13 @@ import {
   Tbody,
   Td,
 } from "@chakra-ui/react";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { teamPostApi, getTeamApi } from "./team.action";
-// const Getapi = () => {
-//   return axios.get("http://localhost:8000/teams");
-// };
+
 function Team() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  let {loading , error , data} = useSelector(store=>store.team)
-  console.log(data,"team")
-  // const [data, setData] = useState([]);
+  let { loading, error, data } = useSelector((store) => store.team);
   const dispatch = useDispatch();
   const [forms, setForms] = useState({
     name: "",
@@ -61,24 +56,23 @@ function Team() {
   };
 
   useEffect(() => {
-    dispatch(getTeamApi())
-    // Getapi()
-    //   .then((d) => {
-    //     setData(d.data);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    dispatch(getTeamApi());
   }, []);
 
   const handleClick = () => {
     dispatch(teamPostApi(forms));
-    // Getapi();
     onClose();
   };
 
   return (
-    <div style={{marginTop:"100px" , padding:"10px" , width:"70%" , margin:"auto"}}>
+    <div
+      style={{
+        marginTop: "100px",
+        padding: "10px",
+        width: "70%",
+        margin: "auto",
+      }}
+    >
       <Tabs variant="enclosed" style={{ backgroundColor: "white" }}>
         <TabList>
           <Tab>MEMBERS</Tab>
@@ -104,7 +98,10 @@ function Team() {
                 </Box>
                 <Spacer />
                 <Box>
-                  <Button onClick={onOpen} style={{backgroundColor:"#03a4f9" ,color:"white"}}>
+                  <Button
+                    onClick={onOpen}
+                    style={{ backgroundColor: "#03a4f9", color: "white" }}
+                  >
                     ADD NEW MEMBER
                   </Button>
                   <Modal
@@ -206,7 +203,9 @@ function Team() {
                 width="auto"
                 placeholder="Add new user group"
               />
-              <Button style={{backgroundColor:"#03a4f9" ,color:"white"}}>ADD</Button>
+              <Button style={{ backgroundColor: "#03a4f9", color: "white" }}>
+                ADD
+              </Button>
             </Box>
             <Box>
               <div
