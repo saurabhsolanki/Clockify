@@ -8,17 +8,18 @@ import {
   getTimeTracker,
   postTimeTracker,
 } from "../store/Timer/Time.action";
+import axios from "axios";
 
 const TimeTracker = () => {
   let { TimeData } = useSelector((store) => store.time);
   const { isopen } = useSelector((store) => store.checkOpen);
-  console.log(TimeData, "thelel");
 
   let dispatch = useDispatch();
   let arr = new Date();
   let [hours, minutes] = [arr.getHours(), arr.getMinutes()];
   const [text, setText] = useState("");
   const [select, setSelect] = useState();
+  const [projectname, setProjectName] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
 
@@ -46,7 +47,7 @@ const TimeTracker = () => {
   };
   let showData = {
     text: text,
-    select: select,
+    select: projectname,
     StartTime: startTime,
     endTime: `${hours}:${minutes}`,
     timer: formatTime(),
@@ -66,6 +67,8 @@ const TimeTracker = () => {
   };
   useEffect(() => {
     dispatch(getTimeTracker());
+    // deleteTime()
+    getProject();
   }, []);
 
   const [isActiveColor, setIsActiveClolor] = useState(false);
@@ -74,6 +77,17 @@ const TimeTracker = () => {
     setIsActiveClolor((current) => !current);
   };
 
+  // getting project
+  const x = {
+    name: "xyz",
+  };
+  const getProject = () => {
+    axios.get("http://localhost:8000/projects").then((res) => {
+      console.log(res.data, "poject");
+      setSelect(res.data);
+    });
+  };
+  console.log(select, "oyerut");
   return (
     <div
       id={style.maintimeTrackerComopnent}
@@ -93,11 +107,12 @@ const TimeTracker = () => {
           <Select
             name="Project"
             id=""
-            onChange={(e) => setSelect(e.target.value)}
+            placeholder="Projects"
+            onChange={(e) => setProjectName(e.target.value)}
           >
-            <option value="React">Project</option>
-            <option value="Redux">Redux</option>
-            <option value="Thunk">Thunk</option>
+            {select?.map((e) => (
+              <option value={e.name}>{e.name}</option>
+            ))}
           </Select>
         </div>
         <div>
