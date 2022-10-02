@@ -5,8 +5,7 @@ const initalSate = {
     loading:false,
     error: false,
     isAuth:false,
-    email: localStorage.getItem("email") || "",
-    token: localStorage.getItem("token") || "",
+    user:{email:"",token:""}
     
 
 }

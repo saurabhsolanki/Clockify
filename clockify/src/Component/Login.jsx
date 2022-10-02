@@ -23,13 +23,12 @@ const Login = () => {
   // const [pass, setPass] = useState("");
   // const [pas, setPas] = useState("");
 
-  const user = useSelector((store) => store.auth.token);
-  console.log(user);
+  const token = useSelector((store) => store.auth.user.token);
+  console.log(token);
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  // console.log(user);
 
   const handlegoogle = () => {
     dispatch(Sigup_google());
@@ -41,10 +40,10 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      navigate("/dashboardpanel");
+    if (token) {
+      navigate("/dashboardpanel/*");
     }
-  }, [user]);
+  }, [token]);
 
   return (
     <>

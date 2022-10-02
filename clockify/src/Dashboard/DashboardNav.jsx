@@ -8,7 +8,7 @@ import { Logout } from "../store/Auth/auth.action";
 import { useNavigate } from "react-router-dom";
 
 const DashboardNav = ({ onOpen }) => {
-  const user = useSelector((store) => store.auth.email);
+  const user = useSelector((store) => store.auth.user.email);
   console.log(user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
