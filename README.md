@@ -1,6 +1,9 @@
 # Clockify Clone
 Time tracking software used by millions. Clockify is a time tracker and timesheet app that lets you track work hours across projects. Unlimited users, free forever.
 
+## Deployment
+
+This project is deployed on netlify here - [Clockify Clone](https://clokif.netlify.app/)
 
 ## NOTE: [Sample login details:( email:abc@gmail.com, password:123456 )]
 
