@@ -37,7 +37,7 @@ import { getProjectapi, projectPostApi } from "./project.action";
 
 function Project() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {loading , error , data} = useSelector(store=>store.project)
+  const { loading, error, data } = useSelector((store) => store.project);
   const dispatch = useDispatch();
   const [forms, setForms] = useState({
     name: "",
@@ -65,8 +65,7 @@ function Project() {
   };
 
   useEffect(() => {
-    handleClick()
-    dispatch(getProjectapi())
+    dispatch(getProjectapi());
   }, []);
 
   const handleClick = () => {
@@ -75,7 +74,15 @@ function Project() {
   };
 
   return (
-    <div style={{ padding:"10px" , backgroundColor:"white" , marginTop:"100px" , width:"70%" , margin:"auto"}}>
+    <div
+      style={{
+        padding: "10px",
+        backgroundColor: "white",
+        marginTop: "100px",
+        width: "70%",
+        margin: "auto",
+      }}
+    >
       <Box>
         <Flex>
           <Box>
@@ -157,7 +164,7 @@ function Project() {
             </Thead>
             {data.map((el) => (
               <Tbody key={el._id}>
-                <Tr >
+                <Tr>
                   <Td>{el.name}</Td>
                   <Td>{el.client}</Td>
                   <Td>{el.tracked}</Td>
