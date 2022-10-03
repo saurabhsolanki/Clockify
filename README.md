@@ -3,7 +3,7 @@ Time tracking software used by millions. Clockify is a time tracker and timeshee
 
 ## Deployment
 
-This project is deployed on netlify here - [Clockify Clone](https://clokif.netlify.app/)
+This project is deployed on netlify here - [Clockify Clone](https://clockyf.netlify.app/)
 
 ## NOTE: [Sample login details:( email:abc@gmail.com, password:123456 )]
 
