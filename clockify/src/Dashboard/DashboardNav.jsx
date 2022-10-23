@@ -9,14 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardNav = ({ onOpen }) => {
   const user = useSelector((store) => store.auth.user.email);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const LOGOUT = () => {
-    if (user === "") {
-      dispatch(Logout);
-    }
+    dispatch(Logout());
+    // }
     navigate("/");
   };
 

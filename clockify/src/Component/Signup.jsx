@@ -80,8 +80,9 @@ const SignUpStyling = styled.div`
 `;
 const SignupPage = () => {
   const token = useSelector((store) => store.auth.user.token);
-  const navigate = useNavigate();
   console.log(token);
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -90,6 +91,7 @@ const SignupPage = () => {
   const handlegoogle = (e) => {
     e.preventDefault();
     dispatch(Sigup_google());
+    // navigate("/dashboardpanel/*");
   };
 
   const handleSubmit = (e) => {

@@ -82,7 +82,7 @@ const TimeTracker = () => {
     name: "xyz",
   };
   const getProject = () => {
-    axios.get("http://localhost:8000/projects").then((res) => {
+    axios.get("https://advsaurabh.herokuapp.com/projects").then((res) => {
       console.log(res.data, "poject");
       setSelect(res.data);
     });

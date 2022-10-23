@@ -38,19 +38,19 @@ export const Sigup_google =() => async(dispatch) => {
         const googleauth = new GoogleAuthProvider()
         const res = await signInWithPopup(auth, googleauth)
         console.log(res)
-        dispatch({ type: AUTH_GOOGLE_SUCCESS,payload:res.user.uid})
+        dispatch({ type: AUTH_GOOGLE_SUCCESS,payload: { email: res.user.email, token: res.user.uid } })
     // return signInWithPopup(auth, googleauth)
         
     } catch (err) { 
         dispatch({ type: AUTH_Failed})
-        // console.log(err)
+        console.log(err)
         alert(err)
     }
 }
 
 
 
-export const Logout = () => ({ type: AUTH_Logout });
+export const Logout = () => ({type: AUTH_Logout});
 
 
 
