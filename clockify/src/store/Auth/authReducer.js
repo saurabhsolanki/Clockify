@@ -5,7 +5,7 @@ const initalSate = {
     loading:false,
     error: false,
     isAuth:false,
-    user:{email:"",token:""}
+    user:{email:localStorage.getItem("email")||"",token:localStorage.getItem("token")||""}
     
 
 }
@@ -73,7 +73,7 @@ export const authReducer = (state=initalSate,{type,payload}) => {
                 loading: false,
                 error: false,
                 isAuth: false,
-                token: "",
+                user: "",
             }
         }
             

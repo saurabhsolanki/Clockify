@@ -32,6 +32,7 @@ const Login = () => {
 
   const handlegoogle = () => {
     dispatch(Sigup_google());
+    // navigate("/dashboardpanel/*");
   };
 
   const Submitdata = () => {
